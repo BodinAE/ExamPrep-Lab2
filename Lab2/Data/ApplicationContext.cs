@@ -8,33 +8,36 @@ namespace Lab2.Data
         private bool _isDisposed = false;
         private static ObservableCollection<Repair> _repairs = new()
         {
-            new() {
-                Id = 1, 
-                Date = new DateOnly(2025, 6, 5), 
-                ApplianceType = Repair.ApplianceTypeEnum.Refrigerator, 
-                Model = "FGNU49", 
-                Problem = "Broke", 
-                ClientName = "Ivanov II", 
-                Phone = "+79762417592", RepairStatus = Repair.RepairStatusEnum.New_Repair
-                },
-            new() {
-                Id = 2,
-                Date = new DateOnly(2025, 6, 5),
-                ApplianceType = Repair.ApplianceTypeEnum.Washing_Machine,
-                Model = "GJNV89",
-                Problem = "Rust",
-                ClientName = "John II",
-                Phone = "+797568867592", RepairStatus = Repair.RepairStatusEnum.Completed
-                },
-            new() {
-                Id = 1,
-                Date = new DateOnly(2025, 5, 5),
-                ApplianceType = Repair.ApplianceTypeEnum.TV,
-                Model = "GJNV89",
-                Problem = "Cracked Screen",
-                ClientName = "Josef II",
-                Phone = "+7975676592", RepairStatus = Repair.RepairStatusEnum.In_Progress
-                }
+            new( 
+                new DateOnly(2025, 6, 5), 
+                ApplianceTypeEnum.Refrigerator, 
+                "FGNU49", 
+                "Broke", 
+                "Ivanov Ivan Ivanovich", 
+                "+79762417592",
+                "Fixer1",
+                RepairStatusEnum.New_Repair
+                ),
+            new(
+                new DateOnly(2025, 6, 5),
+                ApplianceTypeEnum.Washing_Machine,
+                "GJNV89",
+                "Rust",
+                "Johnov John Johnovich",
+                "+797568867592",
+                "Fixer2",
+                RepairStatusEnum.Completed
+                ),
+            new(
+                new DateOnly(2025, 5, 5),
+                ApplianceTypeEnum.TV,
+                "GJNV89",
+                "Cracked Screen",
+                "Ilyanov Ilya Ilyanovich",
+                "+7975676592",
+                "Fixer1",
+                RepairStatusEnum.In_Progress
+                )
         };
         public ObservableCollection<Repair> Repairs { get => _repairs;}
 
@@ -59,7 +62,7 @@ namespace Lab2.Data
                 dbRepair.ApplianceType = Repair.ApplianceType;
                 dbRepair.Model = Repair.Model;
                 dbRepair.Problem = Repair.Problem;
-                dbRepair.ClientName = Repair.ClientName;
+                dbRepair.Name = Repair.Name;
                 dbRepair.Phone = Repair.Phone;
                 dbRepair.RepairStatus = Repair.RepairStatus;
             }

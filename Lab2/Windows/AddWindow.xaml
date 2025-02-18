@@ -1,0 +1,72 @@
+﻿<Window x:Class="Lab2.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2"
+        mc:Ignorable="d"
+        Title="AddWindow" MinHeight="650" MinWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Date" 
+                   Margin="0 10 0 5"/>
+            <DatePicker Name="Date" SelectedDateFormat="Short"></DatePicker>
+            <Label Content="Appliance Type" 
+                   Margin="0 10 0 5"/>
+            <ComboBox Name = "ApplianceType" 
+                      MinWidth="250" 
+                      Height="30" 
+                      Margin="0 0 0 10"></ComboBox>
+            <Label Content="Model" 
+                   Margin="0 10 0 5"/>
+            <TextBox Name = "Model" 
+                     MinWidth="250" 
+                     Height="30" 
+                     Margin="0 0 0 10"></TextBox>
+            <Label Content="Problem" 
+                   Margin="0 10 0 5"/>
+            <TextBox Name = "Problem" 
+                     MinWidth="250" 
+                     Height="80" 
+                     Margin="0 0 0 10"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"></TextBox>
+            <Label Content="Client Name" 
+                   Margin="0 10 0 5"/>
+            <TextBox Name = "ClientName" 
+                     MinWidth="250" 
+                     Height="30" 
+                     Margin="0 0 0 10"></TextBox>
+            <Label Content="Client Phone Number" 
+                   Margin="0 10 0 5"/>
+            <TextBox Name = "Phone" 
+                     MinWidth="250" 
+                     Height="30" 
+                     Margin="0 0 0 10"></TextBox>
+            <Label Content="Repair Status" 
+                   Margin="0 10 0 5"/>
+            <ComboBox Name = "Status" 
+                      MinWidth="250" 
+                      Height="30" 
+                      Margin="0 0 0 10"></ComboBox>
+
+        </StackPanel>
+        <StackPanel Grid.Column="2"
+                    VerticalAlignment="Bottom">
+            <Button Content="ADD"
+                    Margin="0 10 0 5"
+                    MinHeight="40"
+                    Click="AddRepair"></Button>
+            <Button Content="CANCEL"
+                    Margin="0 10 0 5"
+                    MinHeight="40"
+                    Click="CancelButton_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

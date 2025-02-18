@@ -11,6 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab2.Data;
 using Lab2.Models;
+using Lab2.Windows;
 
 namespace Lab2
 {
@@ -20,9 +21,23 @@ namespace Lab2
     public partial class MainWindow : Window
     {
         public ObservableCollection<Repair> RepairList { get; set; }
+        //public bool AllowEdit = false;
+        public int RepairIndex {
+            get
+            {
+                return repairIndex;
+            }
+            set
+            {
+                //AllowEdit = true;
+                repairIndex = value;
+            }
+        }
+        private int repairIndex;
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
             using (ApplicationContext AppContext = new ApplicationContext())
             {
                 RepairList = AppContext.Repairs;
@@ -32,9 +47,15 @@ namespace Lab2
 
         private void ShowAddWindow(object sender, RoutedEventArgs e)
         {
-            AddWindow addWindow = new AddWindow();
-            addWindow.MainWin = this;
+            AddWindow addWindow = new AddWindow(this);
             addWindow.ShowDialog();
+        }
+
+        private void ShowEditWindow(object sender, RoutedEventArgs e)
+        {
+            EditWindow editWindow = new EditWindow(this, RepairList[RepairIndex]);
+            editWindow.ShowDialog();
+            RepairsList.Items.Refresh();
         }
     }
 }
